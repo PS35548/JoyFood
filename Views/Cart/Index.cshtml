@@ -1,0 +1,96 @@
+﻿@model List<CartItem>
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <!-- Bảng Giỏ Hàng -->
+    <div class="col-md-8 col-sm-12 pt-4 px-3 py-3">
+        <h4 class="bi bi-egg-fried">Giỏ hàng</h4>
+        <hr class="mt-3">
+        <div class="table-responsive">
+            <table class="table table-responsive table-bordered align-middle text-center col-md-12">
+                <thead>
+                    <tr class="bg-dark bg-opacity-50">
+                        <th class="text-center align-middle col-md-2" scope="col" style="color:white">Ảnh sản phẩm</th>
+                        <th class="text-center align-middle col-md-3" scope="col" style="color:white">Tên sản phẩm</th>
+                        <th class="text-center align-middle col-md-2" scope="col" style="color:white">Giá tiền</th>
+                        <th class="text-center align-middle col-md-2" scope="col" style="color:white">Số lượng</th>
+                        <th class="text-center align-middle col-md-2" scope="col" style="color:white">Thành tiền</th>
+                        <th class="col-md-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.CartItems)
+                    {
+                        <tr class="text-center">
+                            <th scope="row">
+                                <img src="~/1LayoutAdmin/image/@item.Product.Img" alt="@item.Product.ProductName" width="150">
+                            </th>
+                            <td>@item.Product.ProductName</td>
+                            <td>@item.Product.Price</td>
+                            <td>
+                                <form asp-controller="Cart" asp-action="UpdateQuantity" method="post">
+                                    <input type="hidden" name="id" value="@item.Product.ProductId" />
+                                    <input type="number" name="quantity" value="@item.Quantity" style="width: 80px;" onchange="this.form.submit()">
+                                </form>
+                            </td>
+                            <td>@(item.Product.Price * item.Quantity)</td>
+                            <td>
+                                <form asp-controller="Cart" asp-action="Remove" method="post">
+                                    <input type="hidden" name="id" value="@item.Product.ProductId" />
+                                    <button type="submit" class="btn btn-danger">Xóa</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Thanh Toán & Giao Hàng -->
+    <div class="col-md-4 col-sm-12 mt-4 p-3">
+        <div class="container">
+            <!-- Form thanh toán -->
+            <h3>Thanh Toán & Giao Hàng</h3>
+            <hr class="mt-4">
+            <p><strong>Thông tin giao hàng</strong></p>
+            <form name="myForm">
+                <!-- Các trường thông tin giao hàng -->
+            </form>
+            <!-- Tổng tiền -->
+            <ul style="margin: 0; padding: 0 ;list-style: none; display: flex; justify-content: space-between; align-items: baseline;">
+                <li>
+                    <h4><strong>Tổng tiền:</strong></h4>
+                </li>
+                <li>
+                    <h4><strong>$@Model.Sum(item => item.Product.Price * item.Quantity)</strong></h4>
+                </li>
+            </ul>
+            <!-- Nút Mua hàng -->
+            <a href="@Url.Action("Checkout", "Cart")">
+                <button type="button" class="btn btn-dark" style="width: 100%;">Mua Hàng</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateQuantity(ProductId, newQuantity) {
+        fetch(`/Cart/UpdateQuantity?id=${ProductId}&quantity=${newQuantity}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('subtotal').innerText = '$' + data.subtotal;
+                document.getElementById('total').innerText = '$' + data.total;
+            })
+            .catch(error => console.error('Error:', error));
+    }
+</script>

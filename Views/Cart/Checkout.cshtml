@@ -1,0 +1,34 @@
+﻿@model List<CartItem>
+
+@{
+    ViewData["Title"] = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2>Thanh toán</h2>
+    <hr />
+    <form asp-action="ProcessCheckout" method="post">
+        <div class="form-group">
+            <label for="shippingAddress">Địa chỉ giao hàng:</label>
+            <input type="text" class="form-control" id="shippingAddress" name="shippingAddress" required>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Phương thức thanh toán:</label>
+            <select class="form-control" id="paymentMethod" name="paymentMethod" required>
+                <option value="CreditCard">Thẻ tín dụng</option>
+                <option value="PayPal">PayPal</option>
+                <option value="COD">Thanh toán khi nhận hàng</option>
+            </select>
+        </div>
+        <h4>
+            Tổng tiền:
+            @{
+                var totalAmount = Model?.Sum(item => item.Product.Price * item.Quantity) ?? 0;
+                <text>$@totalAmount</text>
+                ;
+            }
+        </h4>
+        <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+    </form>
+</div>

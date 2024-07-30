@@ -1,0 +1,85 @@
+﻿@using ps35548_asm.Models
+@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "DanhMucHoaDon";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh mục hóa đơn</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Mã đơn hàng
+            </th>
+            <th>
+                Địa chỉ giao hàng
+            </th>
+            <th>
+                Phương thức thanh toán
+            </th>
+            @* <th>
+                Tổng số lượng
+            </th> *@
+            <th>
+                Tổng tiền
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            var totalQuantity = order.OrderItems.Sum(item => item.Quantity);
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => order.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.ShippingAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => order.PaymentMethod)
+                </td>
+                @* <td>
+                    @totalQuantity
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => order.TotalAmount)
+                </td>
+                @* <td>
+                    <a asp-action="Edit" asp-route-id="@order.OrderId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@order.OrderId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@order.OrderId">Delete</a>
+                </td> *@
+            </tr>
+           @*  <tr>
+                <td colspan="6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Mã mặt hàng</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in order.OrderItems)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.ProductId)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Product.ProductName)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </td>
+            </tr> *@
+        }
+    </tbody>
+</table>

@@ -1,0 +1,220 @@
+﻿/* NAV */
+#navbar {
+    background-color: rgb(179, 37, 37);
+}
+
+#logo-text {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+
+
+
+#toggle-icon {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+}
+
+.navbar-nav {
+    margin-left: 20px;
+}
+
+.nav-item {
+    margin-left: 10px;
+}
+
+    .nav-item .nav-link {
+        color: rgb(255, 255, 255);
+        margin-left: 2px;
+        transition: 0.3s ease;
+        font-size: 18px;
+    }
+
+        .nav-item .nav-link:hover {
+            color: rgb(239, 53, 53);
+        }
+
+.dropdown-menu li a {
+    color: rgb(37, 37, 37);
+    transition: 0.3s ease;
+}
+
+    .dropdown-menu li a:hover {
+        background-color: rgb(66 66 64 / 85%);
+        color: rgb(255, 255, 255);
+    }
+
+#search input {
+    border-radius: 50px;
+}
+
+#search button {
+    border-radius: 50px;
+    color: white;
+    color: 1px solid rgb(255, 255, 255);
+}
+/* NAV */
+
+/* Footer */
+.text-dark {
+    font-size: 18px;
+    text-decoration: none;
+}
+/* Footer */
+
+
+
+/* image sp */
+.product-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+/* image sp */
+
+
+
+/* sidebar danhmucsp */
+
+
+.widget {
+    margin-bottom: 30px;
+    border: 1px solid #aaa;
+}
+
+    .widget .heading {
+        background-color: #e85353;
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+        .widget .heading h4 {
+            margin: 0;
+            color: #fff;
+            font-size: 21px;
+        }
+
+    .widget .content {
+        padding: 10px 5px;
+    }
+
+
+
+        .widget.wid-categories ul li {
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #aaa;
+            padding-bottom: 7px;
+            list-style: none;
+            margin-right: 30px; /* Khoảng cách giữa các mục */
+        }
+
+            .widget.wid-categories ul li a {
+                font-size: 17px;
+                text-decoration: none;
+                color: black;
+            }
+
+                .widget.wid-categories ul li a:hover {
+                    color: rgb(249, 10, 10);
+                }
+
+    .widget.wid-product h5 {
+        font-size: 19px;
+        font-weight: 500;
+        margin-top: 0;
+    }
+
+    .widget.wid-product img {
+        float: left;
+        margin: 10px;
+        max-height: 110px;
+    }
+
+    .widget.wid-product .wrapper {
+        vertical-align: middle;
+        text-align: left;
+        padding-bottom: 7px;
+        margin-top: 22px;
+        display: inline-block;
+    }
+
+ 
+
+        .widget.wid-discouts .checkbox {
+            font-weight: 500;
+            margin-left: 20px;
+            padding: 7px 32px 0px 0px;
+            display: block; /* Hiển thị các checkbox dưới dạng block */
+            margin-bottom: 10px; /* Khoảng cách giữa các checkbox */
+            padding-left: 20px; /* Khoảng cách từ lề trái để tạo khoảng trống với label */
+        }
+
+            .widget.wid-discouts .checkbox input[type="checkbox"] {
+                margin-right: 5px; /* Khoảng cách giữa checkbox và label */
+            }
+
+
+
+        .widget.wid-type select {
+            width: 90%;
+            border: 1px solid #aaa;
+            margin-top: 5px;
+            margin-left: 15px;
+            padding: 3px;
+        }
+
+
+
+/* Chi tiết sản phẩm */
+.detail-product {
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.list-detail {
+    margin-top: 10px;
+    line-height: 30px;
+    text-align: left;
+    list-style: none;
+}
+
+.list-detail li {
+    margin-bottom: 10px;
+}
+    .list-detail li input {
+        width: 70px;
+        border: 1px solid #ccc;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+/* Ảnh sản phẩm trang chủ */
+
+.cdt-product__config__param {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.param-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 5px; /* Điều chỉnh khoảng cách giữa các mục */
+    color: #8a8a8a;
+}
+
+    .param-item i {
+        width: 20px; /* Điều chỉnh kích thước của biểu tượng */
+        height: 20px;
+    }
+
+    .param-item span {
+        font-size: 14px; /* Điều chỉnh kích thước chữ */
+    }

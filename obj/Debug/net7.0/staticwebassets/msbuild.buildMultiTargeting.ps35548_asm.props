@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ps35548_asm.props" />
+</Project>

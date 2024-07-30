@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--DONE-->
+
+<h3 class="mt-4" style="font-weight:550;">Kết quả tìm kiếm cho: <span style="color:red;">"A18"</span></h3>
+
+
+<div class="col-md-12">
+    <div class="row p-3">
+        <div class="col-md-3 col-sm-6 p-2">
+            <div class="card text-center">
+                <a asp-controller="ChiTietSP" asp-action="Index">
+                    <img class="product-image" src="~/image/oppoa18.png">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title text-center">OPPO A18</h5>
+                    <p class="card-text text-center text-danger" style="margin-bottom: 0px"><strong>1888888 VND</strong></p>
+                    <div class="cdt-product__config__param">
+                        <div class="param-item">
+                            <i class="bi bi-cpu"></i>Apple A13 Bionic
+                        </div>
+                        <div class="param-item">
+                            <i class="bi bi-phone"></i>6.1 inch
+                        </div>
+                        <div class="param-item">
+                            <i class="bi bi-memory"></i>4 GB
+                        </div>
+                        <div class="param-item">
+                            <i class="bi bi-hdd"></i>64 GB
+                        </div>
+                    </div>
+                    <div class="btn-group d-flex justify-content-center" role="group">
+                        <a class="btn btn-outline-success btn-sm">Thêm vào giỏ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

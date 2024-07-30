@@ -1,0 +1,71 @@
+﻿@using ps35548_asm.Models;
+
+
+
+@model IEnumerable<ps35548_asm.Models.Product>
+
+
+@{
+    ViewData["Title"] = "DanhMucSanPham";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelper
+<h2>Danh mục các sản phẩm</h2>
+
+<p>
+    <a asp-action="ThemSanPhamMoi">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Img)
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Img)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+            </td> *@
+            <td>
+                <a asp-action="SuaSanPham" asp-route-id="@item.ProductId">Edit</a> |
+                <a asp-action="ChiTIetSanPham" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="XoaSanPham" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
